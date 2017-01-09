@@ -3,7 +3,11 @@
 #include"Node.h"
 
 using namespace std;
-Node::Node(){
+Node::Node(Student* pointer){
+  next = NULL;
+}
+Node::~Node(){
+  delete &value;
   next = NULL;
 }
 
@@ -14,20 +18,13 @@ Node* Node::getNext(){
 void Node::setNext(Node* newnext){
   next = newnext;
 }
-void Node::setStudent(){
-  Student* s = new Student;
-  cout << "First Name: " << endl;
-  cin >> s->firstname;
-  cout << s->firstname;
-  cout << "Last Name: " << endl;
-  cin >> s->lastname;
-  cout << "ID: " << endl;
-  cin >> s->id;
-  cout << "GPA: " << endl;
-  cin >> s->gpa; 
+void Node::setStudent(Student* student){
+  Node* current = this;
+  for(current; current->getNext() != NULL; current = current->getNext());
+  current->setNext(new Node(student));
 }
-void Node::getStudent(){
-  
+Student* Node::getStudent(){
+  return pointer;
 }
 
 void Node::setValue(int newValue){
@@ -38,9 +35,9 @@ int Node::getValue(){
   return value;
 }
 
-Node* Node::createNode(Student*){
+//Node* Node::createNode(Student*){
   
-}
+//}
 
 
 void Node::deleteNode(){
