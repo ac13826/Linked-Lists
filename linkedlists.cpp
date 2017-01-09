@@ -5,11 +5,32 @@ using namespace std;
 
 
 class Student{
-  int id;
+public:
+  Student(int i){
+    gpa = i;
+  }
+  int getgpa(){
+    return gpa;
+  }
+private:
+  int gpa;
 };
 
 int main(){
 
+  Student* s1 = new Student(1);
+  Student* s2 = new Student(2);
+  Student* s3 = new Student(5);
+
+  Node* header = new Node(s1);
+  header->setStudent(s2);
+  header->setStudent(s3);
+
+  cout << header->end()->getStudent()->getgpa() << endl;
+
+  for (Node* current = header; current->getNext() !=NULL; current = current->getNext()){
+    cout << current->getStudent()->getgpa()<< endl;
+  }
 
 }
 

@@ -6,7 +6,7 @@ class Student;
 
 class Node{
  public:
-  Node(Student* pointer);
+  Node(Student* student);
   void setValue(int newValue);
   int getValue();
   Node* getNext();//get next Node pointer
@@ -15,6 +15,8 @@ class Node{
   void deleteNode();//deleting the current node, including the corresponding student
   ~Node();
   Student* getStudent();
+  Node* end();
+  void erase();
   void setStudent(Student* student);
  protected:
   Student* pointer;

@@ -3,11 +3,11 @@
 #include"Node.h"
 
 using namespace std;
-Node::Node(Student* pointer){
-  next = NULL;
+Node::Node(Student* student){
+  pointer = student;
 }
 Node::~Node(){
-  delete &value;
+  delete &pointer;
   next = NULL;
 }
 
@@ -34,7 +34,20 @@ void Node::setValue(int newValue){
 int Node::getValue(){
   return value;
 }
+void Node::erase(){
+  if(next){
+    next->erase();
+    delete this;
 
+  }
+  delete &pointer;
+}
+Node* Node::end(){
+  Node* current = this;
+  for(current; current->getNext() != NULL; current = current->getNext());
+  return current;
+
+}
 //Node* Node::createNode(Student*){
   
 //}
