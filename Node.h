@@ -2,7 +2,7 @@
 #include<cstring>
 
 using namespace std;
-class Student;
+struct Student;
 
 class Node{
  public:

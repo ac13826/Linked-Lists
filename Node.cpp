@@ -1,13 +1,13 @@
 #include<iostream>
 #include<cstring>
 #include"Node.h"
-
+#include"Student.h"
 using namespace std;
 Node::Node(Student* student){
   pointer = student;
 }
 Node::~Node(){
-  delete &pointer;
+  delete pointer;
   next = NULL;
 }
 
