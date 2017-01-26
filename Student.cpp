@@ -19,7 +19,7 @@ Student::Student(){
   cout << "His name is " << firstname << " " << lastname << endl;
   cout << "His ID is " << id << " and his GPA is " << gpa << endl;
   
-  cin.ignore();
+  
 
 }
 

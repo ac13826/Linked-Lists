@@ -31,17 +31,17 @@ int main(){
       
     }
     if((strcmp(input, "delete"))==0){
-      cout << "What would you like to delete?" << endl;
-      
+   
+      removestudent(n);
     }
 
   }
 }
 void addstudent(Node* &n){
   Node* h = new Node(new Student);
-  Student* s = new Student;
+ 
   h->setNext(n);
-  h->setStudent(s);
+  
   n=h;
   cout << "this sucks" << endl;
   return;
@@ -59,7 +59,8 @@ void printstudent(Node* &n){
   cout << "hi" << endl;
 }
 
-void deletestudent(Node* &n){
+void removestudent(Node* &n){
+ 
   int id;
   cout << "Please input the ID of the student you would like to remove" << endl;
   cin >> id;
