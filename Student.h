@@ -10,13 +10,14 @@ class Student{
  private:
   char firstname[30];
   char lastname[30];
-  float gpa;
+  double gpa;
   int id;
  public:
   Student();
+  
   char* getFirst();
   char* getLast();
-  float getGPA();
+  double getGPA();
   int getID();
 };
 #endif

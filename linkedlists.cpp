@@ -1,4 +1,6 @@
-
+//Linked Lists: add, print, and remove student
+//My Last Project of C++ :( T_T, enjoyed it until last week
+//Will reattempt to learn coding in the future
 #include<iostream>
 #include "Node.h"
 #include "Student.h"
@@ -9,15 +11,18 @@ using namespace std;
 void addstudent(Node* &n);
 void printstudent(Node* &n);
 void removestudent(Node* &n);
+void averagestudent(Node* &n);
 
 int main(){
   bool running = true;
   char input[30];
   Node* n = NULL;
-  //Node* head = NULL;
+ 
 
   while(running == true){
+    
     cout << "What would you like to do?" << endl;
+    cout << "Type add, print, or delete (or quit)" << endl;
     cin.get(input, 30);
     cin.ignore();
     if((strcmp(input, "add"))==0){
@@ -34,10 +39,19 @@ int main(){
    
       removestudent(n);
     }
+    if((strcmp(input, "average"))==0){
+      averagestudent(n);
+    }
+    if((strcmp(input, "quit"))==0){
+      cout << "i hate life" << endl;
+      return 0;
+    }
 
   }
 }
-void addstudent(Node* &n){
+
+void addstudent(Node* &n){//adding to the node list
+  Node* current = n;
   Node* h = new Node(new Student);
  
   h->setNext(n);
@@ -47,33 +61,74 @@ void addstudent(Node* &n){
   return;
 }
 
-void printstudent(Node* &n){
-  cout << "hey" << endl;
+void printstudent(Node* &n){//printing the list
+  cout << "--------------------------------------------------" << endl;
   for(Node* currentNode = n; currentNode!= NULL; currentNode = currentNode->getNext()){
     cout << "hi" << endl;
-    cout << "Name: " << currentNode->getStudent()->getFirst() << " " << currentNode->getStudent()->getLast() << endl;
-    cout << "ID: " << currentNode->getStudent()->getID() << endl;
-    cout << "GPA: " << currentNode->getStudent()->getGPA() << endl;
-    cout << endl;
+    // if(currentNode->getStudent() != NULL){
+      cout << "Name: " << currentNode->getStudent()->getFirst() << " " << currentNode->getStudent()->getLast() << endl;
+      cout << "ID: " << currentNode->getStudent()->getID() << endl;
+      cout << "GPA: " << currentNode->getStudent()->getGPA() << endl;
+      //}
   }
-  cout << "hi" << endl;
+  cout << "---------------------------------------------------"<< endl;
 }
 
-void removestudent(Node* &n){
+void removestudent(Node* &n){//deleting from the list
  
   int id;
+  Node* deletepointer = NULL;
   cout << "Please input the ID of the student you would like to remove" << endl;
   cin >> id;
   cin.ignore();
-  for(Node* currentNode = n; currentNode != NULL; currentNode = currentNode->getNext()){
+  Node* currentNode = n;
+  Node* previous = NULL;
+ 
+  if(id == n->getStudent()->getID()){
+    n = n->getNext();
+  }
+  while(currentNode != NULL){
     if(id == currentNode->getStudent()->getID()){
-      cout << "ok" << endl;
+      cout << "match" << endl;
+      
+      if(previous != NULL){
+	cout << "yes" << endl;
+	previous->setNext(currentNode->getNext());
+	
+      }
+      cout << "check" << endl;
+      currentNode = NULL;
+      deletepointer = currentNode;
+      delete(deletepointer);
+      break;
+      cout << "hey" << endl;
     }
-
+    
+    previous = currentNode;
+    currentNode = currentNode->getNext();
+    
   }
 
 }
+  /*for(Node* currentNode = n; currentNode != NULL; currentNode = currentNode->getNext()){
+    if(id == currentNode->getStudent()->getID()){
+      currentNode->erase();
+      }
 
+  }
+
+}*/
+void averagestudent(Node* &n){//averaging the GPAs
+  double total = 0;
+  double counter;
+  for(Node* currentNode = n; currentNode != NULL; currentNode = currentNode->getNext()){
+    counter++;
+    total += currentNode->getStudent()->getGPA();
+  } 
+  cout << total/counter << endl;
+  cout << "hello" << endl;
+
+}
 
   /* Student* s1 = new Student(1);
   Student* s2 = new Student(2);
