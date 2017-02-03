@@ -44,33 +44,107 @@ int main(){
     }
     if((strcmp(input, "quit"))==0){
       cout << "i hate life" << endl;
-      return 0;
+      running = false;
     }
 
   }
 }
 
 void addstudent(Node* &n){//adding to the node list
+  cout << "hey" << endl;
+  Node* currentNode = n;
+  /*if(n->getNext() != NULL){
+    n = n->getNext();
+    addstudent(n);
+  }
+  else{
+    n->setNext(new Node(new Student));
+
+  }*/
+  
+  /*if(n != NULL){
+    if(n->getNext() != NULL){
+      cout << "nope" << endl;
+      n= n->getNext();     
+      addstudent(n);
+    }
+    else{
+      cout << "does it work? " << endl;
+      
+      //      Node* h = new Node(new Student);
+      
+      n->setNext(new Node(new Student));
+      
+      cout << "this sucks" << endl;
+      return;
+    }
+  }
+  else{
+    cout << "surprise" << endl;
+    Node* h = new Node(new Student);
+    n = h;
+    return;
+   
+  }*/
+    
   Node* current = n;
   Node* h = new Node(new Student);
- 
+
   h->setNext(n);
-  
-  n=h;
+  n= h;
   cout << "this sucks" << endl;
-  return;
+
+  
 }
 
 void printstudent(Node* &n){//printing the list
   cout << "--------------------------------------------------" << endl;
+  
+  
+  Node* currentNode = n;
+  Node* temp = currentNode;
+  /*if(n != NULL){
+    cout << "Name: " << n->getStudent()->getFirst() << " " << n->getStudent()->getLast() << endl;
+    cout << "ID: " << n->getStudent()->getID() << endl;
+    cout << "GPA: " << n->getStudent()->getGPA() << endl;
+    if(n->getNext() != NULL && n->getStudent() != NULL){
+      n = n->getNext();
+      printstudent(n);
+    }
+  
+    else{
+      n = n->getNext();
+      
+    }
+  }
+  else{
+    cout << "none in the list" << endl;
+    return;
+    
+    }*/
+
   for(Node* currentNode = n; currentNode!= NULL; currentNode = currentNode->getNext()){
     cout << "hi" << endl;
     // if(currentNode->getStudent() != NULL){
       cout << "Name: " << currentNode->getStudent()->getFirst() << " " << currentNode->getStudent()->getLast() << endl;
       cout << "ID: " << currentNode->getStudent()->getID() << endl;
       cout << "GPA: " << currentNode->getStudent()->getGPA() << endl;
+      
       //}
+      }
+  /*if(n != NULL){
+    Node* currentNode = n;
+    cout << "Name: " << currentNode->getStudent()->getFirst() << " " << currentNode->getStudent()->getLast() << endl;
+    cout << "ID: " << currentNode->getStudent()->getID() << endl;
+    cout << "GPA: " << currentNode->getStudent()->getGPA() << endl;
+    return;
   }
+  if(n->getNext()!= NULL){
+    n->getNext();
+    printstudent(n->getNext());
+
+
+    }*/
   cout << "---------------------------------------------------"<< endl;
 }
 
