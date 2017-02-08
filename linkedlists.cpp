@@ -43,7 +43,12 @@ int main(){
       removestudent(n->getNext(), n, id);
     }
     if((strcmp(input, "average"))==0){
-      averagestudent(n->getNext(), 0, 0);
+      if(n->getNext() == NULL){
+	cout << "nothing in here" << endl;
+      }
+      else{
+	averagestudent(n->getNext(), 0, 0);
+      }
     }
     if((strcmp(input, "quit"))==0){
       cout << "i hate life" << endl;
